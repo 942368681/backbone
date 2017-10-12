@@ -6,15 +6,7 @@
    <meta http-equiv="X-UA-Compatible" content="ie=edge">
    <title>Document</title>
 </head>
-<style media="screen">
-   #box{
-      width: 100px;
-      height: 100px;
-      background: skyblue;
-   }
-</style>
 <body>
-   <div id="box"></div>
    <script src="../tools/jquery-3.2.1.min.js" charset="utf-8"></script>
    <script src="../tools/underscore.js" charset="utf-8"></script>
    <script src="../tools/backbone.js" charset="utf-8"></script>
@@ -24,8 +16,15 @@
             defaults:{
                name:'aaa'
             },
+            initialize:function (){
+               this.on('change',function (){
+                  console.log(123);
+               });
+            }
          }
       );
+      var model = new M;
+      model.set('name','sfl');
    </script>
 </body>
 </html>
