@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>Document</title>
+</head>
+<body>
+   <script src="../tools/jquery-3.2.1.min.js" charset="utf-8"></script>
+   <script src="../tools/underscore.js" charset="utf-8"></script>
+   <script src="../tools/backbone.js" charset="utf-8"></script>
+   <script type="text/javascript">
+      /*属性*/
+
+      //这里defaults相当于是默认的数据值，当进行创建实列时，进行GET方法调用时，直接使用的是默认的数据值。
+      var M = Backbone.Model.extend(
+         {
+            defaults:{
+               name:'aaa'
+            }
+         }
+      );
+      var model = new M;
+      console.log(model.get('name'));
+   </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>Document</title>
+</head>
+<body>
+   <script src="../tools/jquery-3.2.1.min.js" charset="utf-8"></script>
+   <script src="../tools/underscore.js" charset="utf-8"></script>
+   <script src="../tools/backbone.js" charset="utf-8"></script>
+   <script type="text/javascript">
+      //模型的构造函数的扩展,相当于继承，则声称的实列可以使用其父类的方法
+      var M = Backbone.Model.extend(
+         //第一个参数写实列方法,第二个参数写静态方法
+         {
+            aaa:function (){
+               console.log('aaa');
+            }
+         },
+         {
+            bbb:function (){
+               console.log('bbb');
+            }
+         }
+      );
+      //创建一个实例化对象
+      var model = new M;
+      //实例化对象可以使用实例方法
+      model.aaa();
+      //静态方法是挂载在构造函数下面的，所以需要使用构造函数来直接调用
+      M.bbb();
+   </script>
+</body>
+</html>

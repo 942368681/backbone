@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>Document</title>
+</head>
+<body>
+   <script src="../tools/jquery-3.2.1.min.js" charset="utf-8"></script>
+   <script src="../tools/underscore.js" charset="utf-8"></script>
+   <script src="../tools/backbone.js" charset="utf-8"></script>
+   <script type="text/javascript">
+      /*多个模型数据连接*/
+
+      //直接赋值进行数据初始化
+      var model_1 = new Backbone.Model({'name':'aaa'});
+      var model_2 = new Backbone.Model({'name':'bbb'});
+      //创建数据模型集合
+      var models = new Backbone.Collection();
+      //通过add方法将单个模型添加到模型集合中
+      models.add(model_1);
+      models.add(model_2);
+      console.log(JSON.stringify(models));//[{"name":"aaa"},{"name":"bbb"}]
+   </script>
+</body>
+</html>

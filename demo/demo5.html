@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>Document</title>
+</head>
+<body>
+   <script src="../tools/jquery-3.2.1.min.js" charset="utf-8"></script>
+   <script src="../tools/underscore.js" charset="utf-8"></script>
+   <script src="../tools/backbone.js" charset="utf-8"></script>
+   <script type="text/javascript">
+      /*继承*/
+
+      var M = Backbone.Model.extend(
+         {
+            aaa:function (){
+               console.log('aaa');
+            }
+         }
+      );
+      var childM = M.extend();//子类继承父类模型
+      var model = new childM;//声明一个实例化对象
+      model.aaa();
+   </script>
+</body>
+</html>
