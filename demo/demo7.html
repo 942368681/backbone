@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>Document</title>
+</head>
+<body>
+   <script src="../tools/jquery-3.2.1.min.js" charset="utf-8"></script>
+   <script src="../tools/underscore.js" charset="utf-8"></script>
+   <script src="../tools/backbone.js" charset="utf-8"></script>
+   <script type="text/javascript">
+      //Model和View结合
+      var M = Backbone.Model.extend({
+         defaults:{
+            name:'aaa'
+         }
+      });
+      //创建一个View,listenTo比on多一个参数，改写了this指向
+      var V = Backbone.View.extend({
+         initialize:function (){
+            console.log(this);
+            this.listenTo(this.model,'change',this.show);
+         },
+         show:function (model){
+            console.log(model.get('name'));
+         }
+      });
+      var m = new M;
+      var v = new V({model:m});
+      m.set('name','sfl');
+   </script>
+</body>
+</html>

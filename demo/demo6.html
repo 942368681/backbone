@@ -11,13 +11,32 @@
    <script src="../tools/underscore.js" charset="utf-8"></script>
    <script src="../tools/backbone.js" charset="utf-8"></script>
    <script type="text/javascript">
+
+      //不管什么属性发生改变都会触发该事件
+      /*var M = Backbone.Model.extend(
+         {
+            defaults:{
+               name:'aaa'
+            },
+            //实例化的时候会触发initialize，这里相当于实例化的时候绑定了一个函数
+            initialize:function (){
+               this.on('change',function (){
+                  console.log(123);
+               });
+            }
+         }
+      );
+      var model = new M;
+      model.set('name','sfl');*/
+
+      // 特定的事件触发
       var M = Backbone.Model.extend(
          {
             defaults:{
                name:'aaa'
             },
             initialize:function (){
-               this.on('change',function (){
+               this.on('change:name',function (){
                   console.log(123);
                });
             }
