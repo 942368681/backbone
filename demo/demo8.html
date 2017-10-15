@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>Document</title>
+</head>
+
+<body>
+   <script src="../tools/jquery-3.2.1.min.js" charset="utf-8"></script>
+   <script src="../tools/underscore.js" charset="utf-8"></script>
+   <script src="../tools/backbone.js" charset="utf-8"></script>
+   <script type="text/javascript">
+      /*数据储存  save*/
+      /*Backbone.sync = function(method, model) { //AJAX请求
+         alert(method + ":" + JSON.stringify(model));
+      }
+      var M = Backbone.Model.extend({
+         defaults: {
+            name: 'aaa'
+         },
+         url: '/users' //后台的地址
+      });
+      var m = new M;
+      m.save(); //将当前数据对象保存到服务器上
+      m.save({
+         name: 'jt'
+      }); //更新操作*/
+
+      /*数据更新  fetch*/
+      Backbone.sync = function (method,model){
+         alert(method + ":" + JSON.stringify(model));
+      };
+      var C = Backbone.Collection.extend({
+         //获取服务器成功了，触发reset
+         initialize:function (){
+            this.on('reset',function (){
+               alert(123);
+            });
+         },
+         url:'/user'
+      });
+      var models = new C;
+      models.fetch();
+   </script>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>Document</title>
+</head>
+<body>
+   <script src="../tools/jquery-3.2.1.min.js" charset="utf-8"></script>
+   <script src="../tools/underscore.js" charset="utf-8"></script>
+   <script src="../tools/backbone.js" charset="utf-8"></script>
+   <script type="text/javascript">
+      /*路由*/
+      var Worksapce = Backbone.Router.extend({
+         routes:{
+            // 存放了hash和所对应触发的函数
+            "help":"help",
+            "search/:query":"search",//:代表这个字符是变量，意思就是query是一个变量，假设query=chaojidan，那么这里的"search/chaojidan"对应search函数
+            "search/:query/p:page":"search"
+         },
+         help:function (){
+            alert(1);
+         },
+         search:function (query,page){
+            alert(query + page);
+         },
+      });
+      //创建路由对象
+      var r = new Worksapce;
+      //历史管理
+      Backbone.history.start();
+   </script>
+</body>
+</html>

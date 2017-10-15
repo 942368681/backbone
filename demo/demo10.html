@@ -7,29 +7,32 @@
    <title>Document</title>
 </head>
 <body>
+   <input type="button" value="1">
+   <ul>
+      <li>1111</li>
+      <li>2222</li>
+      <li>3333</li>
+      <li>4444</li>
+   </ul>
    <script src="../tools/jquery-3.2.1.min.js" charset="utf-8"></script>
    <script src="../tools/underscore.js" charset="utf-8"></script>
    <script src="../tools/backbone.js" charset="utf-8"></script>
    <script type="text/javascript">
-      //Model和View结合
-      var M = Backbone.Model.extend({
-         defaults:{
-            name:'aaa'
-         }
-      });
-      //创建一个View,listenTo比on多一个参数，改写了this指向
+      /*事件委托*/
       var V = Backbone.View.extend({
-         initialize:function (){
-            console.log(this);//指向V
-            this.listenTo(this.model,'change',this.show);
+         el:$('body'),
+         events:{
+            'click input':'aaa',
+            'mouseover li':'bbb'
          },
-         show:function (model){
-            console.log(model.get('name'));
+         aaa:function (){
+            alert(123);
+         },
+         bbb:function (){
+            alert(456);
          }
       });
-      var m = new M;
-      var v = new V({model:m});//将之前创建的模型对象传进去
-      m.set('name','sfl');
+      var view = new V;
    </script>
 </body>
 </html>
